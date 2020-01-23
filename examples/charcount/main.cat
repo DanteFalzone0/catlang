@@ -1,0 +1,31 @@
+/* This is a very simple program written in C@. It uses a
+   function defined in charcount.c. */
+
+#include <stdio.h>
+
+/* You should always include the preprocessed version of
+your code because the C@ preprocessor gets run before the C
+preprocessor. If you include code containing C@ features,
+the C preprocessor will find itself preprcessing C@, and it
+won't know what to do. The preprocessed version of a .cat
+file has the ending .pp.c, and for a .h file it's .pp.h. */
+#include "charcount.pp.h"
+
+int main(int argc, char **argv) {
+    if (argc < 2) {
+        fprintf(stderr, "Error: no string passed\n");
+        return 1;
+    }
+
+    /* Because the signature of charcount() has the "pure"
+       qualifier before it, we know that it won't modify
+       anything we pass to it */
+    int num_chars = charcount(argv[1]);
+    printf(
+        "The string %s contains %d characters.\n",
+        argv[1],
+        num_chars
+    );
+
+    return 0;
+}

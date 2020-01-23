@@ -1,0 +1,5 @@
+a.out
+*.pp.c
+*.pp.h
+*.o
+__pycache__

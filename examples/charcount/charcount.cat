@@ -1,0 +1,8 @@
+/* The "pure" keyword ensures that this function will not
+   mutate the values of any of its arguments, nor any
+   values pointed to by its arguments. */
+pure int charcount(char *string) {
+    int result = 0, i;
+    for (i = 0; string[i]; i++, result++);
+    return result;
+}

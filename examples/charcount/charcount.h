@@ -1,0 +1,1 @@
+pure int charcount(char *string);
